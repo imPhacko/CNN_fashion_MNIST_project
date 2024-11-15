@@ -38,6 +38,11 @@ python train.py
 - Test Accuracy: 92.13%
 - Training visualizations available in notebook
 
+<div align="center">
+  <img src="training_history.png" width="400" alt="Training Loss and Accuracy"/>
+  <img src="representation_images/confusion_matrix.png" width="400" alt="Confusion Matrix"/>
+</div>
+
 ## Model Architecture
 - 3 Convolutional blocks
 - Batch normalization
