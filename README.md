@@ -2,6 +2,12 @@
 
 A Convolutional Neural Network (CNN) implementation for classifying Fashion MNIST dataset using PyTorch.
 
+<div align="center">
+  <img src="representation_images/image_vs_pixels.png" width="400" alt="Image vs Pixels Visualization"/>
+  <img src="representation_images/model_predictions_example.png" width="400" alt="Model Predictions Example"/>
+</div>
+
+
 ## Project Structure
 * `data_loader.py` # Data loading and augmentation
 * `model.py` # Model architecture
