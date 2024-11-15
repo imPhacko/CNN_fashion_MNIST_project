@@ -3,8 +3,8 @@
 A Convolutional Neural Network (CNN) implementation for classifying Fashion MNIST dataset using PyTorch.
 
 <div align="center">
-  <img src="representation_images/image_vs_pixels.png" width="400" alt="Image vs Pixels Visualization"/>
-  <img src="representation_images/model_predictions_example.png" width="400" alt="Model Predictions Example"/>
+  <img src="representation_images/image_vs_pixels.png" width="600" alt="Image vs Pixels Visualization"/>
+  <img src="representation_images/model_predictions_example.png" width="800" alt="Model Predictions Example"/>
 </div>
 
 
@@ -39,8 +39,8 @@ python train.py
 - Training visualizations available in notebook
 
 <div align="center">
-  <img src="training_history.png" width="400" alt="Training Loss and Accuracy"/>
-  <img src="representation_images/confusion_matrix.png" width="400" alt="Confusion Matrix"/>
+  <img src="training_history.png" width="600" alt="Training Loss and Accuracy"/>
+  <img src="representation_images/confusion_matrix.png" width="600" alt="Confusion Matrix"/>
 </div>
 
 ## Model Architecture
