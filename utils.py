@@ -16,23 +16,23 @@ def train_epoch(model, train_loader, criterion, optimizer, device):
         tuple: (average loss, accuracy)
     """
     model.train()
-    running_loss = 0.0
-    correct = 0
-    total = 0
+    running_loss = 0.0 # Total error across all batches
+    correct = 0 # Number of correct predictions
+    total = 0 # Total number of predictions
     
     for images, labels in tqdm(train_loader, desc='Training'):
-        images, labels = images.to(device), labels.to(device)
+        images, labels = images.to(device), labels.to(device) # Move our images and labels to GPU
         
-        optimizer.zero_grad()
-        outputs = model(images)
-        loss = criterion(outputs, labels)
+        optimizer.zero_grad() # Reset gradients to zero
+        outputs = model(images) # Forward pass
+        loss = criterion(outputs, labels) # Calculate loss
         
-        loss.backward()
-        optimizer.step()
+        loss.backward() # Backward pass
+        optimizer.step() # Update weights
         
-        running_loss += loss.item()
-        _, predicted = outputs.max(1)
-        total += labels.size(0)
+        running_loss += loss.item() # Update running loss
+        _, predicted = outputs.max(1) # Get predicted class
+        total += labels.size(0) # Update total number of predictions
         correct += predicted.eq(labels).sum().item()
     
     return running_loss / len(train_loader), 100. * correct / total
@@ -55,15 +55,19 @@ def evaluate(model, test_loader, criterion, device):
     correct = 0
     total = 0
     
-    with torch.no_grad():
+    with torch.no_grad(): # Not training don't need gradients
         for images, labels in tqdm(test_loader, desc='Evaluating'):
-            images, labels = images.to(device), labels.to(device)
-            outputs = model(images)
-            loss = criterion(outputs, labels)
+            images, labels = images.to(device), labels.to(device) # Move our images and labels to GPU
+            outputs = model(images) # Forward pass
+            loss = criterion(outputs, labels) # Calculate loss
             
-            running_loss += loss.item()
-            _, predicted = outputs.max(1)
-            total += labels.size(0)
-            correct += predicted.eq(labels).sum().item()
+            running_loss += loss.item() # Update running loss
+            _, predicted = outputs.max(1) # Get predicted class
+            total += labels.size(0) # Update total number of predictions
+            correct += predicted.eq(labels).sum().item() # Update number of correct predictions
+
+    # Calculate final test performance
+    avg_loss = running_loss / len(test_loader)
+    accuracy = 100. * correct / total  # Convert to percentage
     
-    return running_loss / len(test_loader), 100. * correct / total
+    return avg_loss, accuracy
