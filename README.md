@@ -1,5 +1,7 @@
 # Fashion MNIST CNN Classifier
 
+**Built:** November 2024
+
 A Convolutional Neural Network (CNN) implementation for classifying Fashion MNIST dataset using PyTorch.
 
 <div align="center">
